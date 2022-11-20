@@ -20,6 +20,7 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
 
 @SpringBootTest
+@Transactional  // 각 테스트 메소드가 종료될 때 마다 처리했던 데이터들을 모두 롤백해준다.
 class UserRepositoryTest {
 
     @Autowired
