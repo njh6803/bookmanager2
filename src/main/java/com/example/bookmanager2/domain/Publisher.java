@@ -21,7 +21,12 @@ public class Publisher extends BaseEntity{
 
     private String name;
 
-    @OneToMany
+    public void addBook(Book book) {
+        this.books.add(book);
+    }
+
+    @OneToMany(orphanRemoval = true) // 연관관계 제거를 해도 같이 삭제해준다.
     @JoinColumn(name = "publisher_id")
+    @ToString.Exclude
     private List<Book> books = new ArrayList<>();
 }
